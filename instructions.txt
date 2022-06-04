@@ -1,0 +1,5 @@
+dotnet ef database drop -f -v
+au niveau du base de donne : create database AbsenceDb
+dotnet ef migrations add ihssanMigration
+dotnet ef database update
+
