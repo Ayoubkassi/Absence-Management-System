@@ -1,6 +1,6 @@
 using System;
 
-namespace testApp.Models
+namespace Absence.Models
 {
     public class ErrorViewModel
     {
