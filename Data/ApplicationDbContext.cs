@@ -14,9 +14,11 @@ namespace Absence.Data
 
     }
 
-    public DbSet<User> User { get; set; }
+    public DbSet<Prof> Profs { get; set; }
     public DbSet<Student> Students {get; set;}
     public DbSet<Abse> Absences {get; set;}
+    public DbSet<Admin> Admins { get; set; }
+
 
   }
 }

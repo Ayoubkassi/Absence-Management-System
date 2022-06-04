@@ -3,14 +3,16 @@ using Absence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Absence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220604185127_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,54 +43,6 @@ namespace Absence.Migrations
                     b.ToTable("Absences");
                 });
 
-            modelBuilder.Entity("Absence.Models.Admin", b =>
-                {
-                    b.Property<int>("IdAdmin")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdAdmin");
-
-                    b.ToTable("Admins");
-                });
-
-            modelBuilder.Entity("Absence.Models.Prof", b =>
-                {
-                    b.Property<int>("IdProf")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdProf");
-
-                    b.ToTable("Profs");
-                });
-
             modelBuilder.Entity("Absence.Models.Student", b =>
                 {
                     b.Property<int>("IdStudent")
@@ -96,21 +50,42 @@ namespace Absence.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.HasKey("IdStudent");
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("Absence.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdStudent")
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdStudent");
+                    b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.HasIndex("IdStudent")
+                        .IsUnique();
+
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Absence.Models.Abse", b =>
@@ -124,9 +99,22 @@ namespace Absence.Migrations
                     b.Navigation("Student");
                 });
 
+            modelBuilder.Entity("Absence.Models.User", b =>
+                {
+                    b.HasOne("Absence.Models.Student", "Student")
+                        .WithOne("User")
+                        .HasForeignKey("Absence.Models.User", "IdStudent")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("Absence.Models.Student", b =>
                 {
                     b.Navigation("Absences");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

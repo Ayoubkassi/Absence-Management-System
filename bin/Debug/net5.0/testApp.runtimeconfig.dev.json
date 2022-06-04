@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "/home/ryota/.dotnet/store/|arch|/|tfm|",
-      "/home/ryota/.nuget/packages"
-    ]
-  }
-}

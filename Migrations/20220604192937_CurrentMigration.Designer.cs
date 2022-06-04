@@ -3,14 +3,16 @@ using Absence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Absence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220604192937_CurrentMigration")]
+    partial class CurrentMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,30 +43,6 @@ namespace Absence.Migrations
                     b.ToTable("Absences");
                 });
 
-            modelBuilder.Entity("Absence.Models.Admin", b =>
-                {
-                    b.Property<int>("IdAdmin")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdAdmin");
-
-                    b.ToTable("Admins");
-                });
-
             modelBuilder.Entity("Absence.Models.Prof", b =>
                 {
                     b.Property<int>("IdProf")
@@ -86,7 +64,7 @@ namespace Absence.Migrations
 
                     b.HasKey("IdProf");
 
-                    b.ToTable("Profs");
+                    b.ToTable("Prof");
                 });
 
             modelBuilder.Entity("Absence.Models.Student", b =>

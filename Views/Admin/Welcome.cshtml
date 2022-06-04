@@ -1,0 +1,21 @@
+@model Absence.Models.Admin
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+
+    <h1 class="display-4">Hello Admin</h1>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Hello @Html.DisplayFor(model => model.UserName)</h1>
+      <p class="lead">Hey Hey And Welcome Again This is Our Application To Manage Absence </p>
+      <hr class="my-4">
+      <p>This is Project of DotNet Technologie , Supervised By Profesor Aouatif Amine</p>
+      <p class="lead">
+
+
+            <a class="btn btn-primary btn-lg" asp-controller="Admin" asp-action="AdminDash" role="button">Dashboard</a>
+
+      </p>
+    </div>

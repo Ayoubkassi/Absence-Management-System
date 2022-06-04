@@ -24,11 +24,11 @@ namespace Absence.Controllers
 
 
 		//Get Register category page
-		public IActionResult CompteConsultation()
-		{
-			var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
-			return View(usr);
-		}
+		// public IActionResult CompteConsultation()
+		// {
+		// 	var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
+		// 	return View(usr);
+		// }
 
 		//Get Register category page
 		public IActionResult Register()
@@ -46,27 +46,27 @@ namespace Absence.Controllers
 
 
 		//Get Admin Dash
-		public IActionResult AdminDash()
-		{
-
-			//to get session we use
-			var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
-			return View(usr);
-		}
+		// public IActionResult AdminDash()
+		// {
+		//
+		// 	//to get session we use
+		// 	var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
+		// 	return View(usr);
+		// }
 
 		//Get Prof Dash
-		public IActionResult ProfDash()
-		{
-			var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
-			return View(usr);
-		}
+		// public IActionResult ProfDash()
+		// {
+		// 	var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
+		// 	return View(usr);
+		// }
 
 		//Get Student Dash
-		public IActionResult StudentDash()
-		{
-			var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
-			return View(usr);
-		}
+		// public IActionResult StudentDash()
+		// {
+		// 	var usr = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("loginSession"));
+		// 	return View(usr);
+		// }
 
 		//Get Login category page
 		public IActionResult Login()
@@ -74,33 +74,34 @@ namespace Absence.Controllers
 			return View();
 		}
 
-		//Get Login category page
-		public IActionResult Welcome(string username)
-		{
-			ViewData["Username"]= username;
-			IEnumerable<User> users = _db.User;
-
-			User obj = null;
-			foreach(User user in users){
-				if(user.UserName == username){
-					obj = user;
-				}
-			}
-
-			ViewData["Role"]=obj.Role;
-			return View();
-		}
+		// //Get Login category page
+		// public IActionResult Welcome(string username)
+		// {
+		// 	ViewData["Username"]= username;
+		// 	IEnumerable<User> users = _db.User;
+		//
+		// 	User obj = null;
+		// 	foreach(User user in users){
+		// 		if(user.UserName == username){
+		// 			obj = user;
+		// 		}
+		// 	}
+		//
+		// 	return View();
+		// }
 
 		//POST - CREATE
 		[HttpPost]
-	  	[ValidateAntiForgeryToken]
-		public IActionResult Register(User obj)
+	  [ValidateAntiForgeryToken]
+		public IActionResult Register(Admin obj)
 		{
 					 if (ModelState.IsValid)
 					 {
 					 		//just for temp user accounts
 					 		//obj.Role="Student";
-							 _db.User.Add(obj);
+							 _db.Admins.Add(obj);
+							 // _db.Profs.Add(obj);
+							 // _db.Admins.Add(obj);
 							 _db.SaveChanges();
 							 return RedirectToAction("Login","User");
 					 }
@@ -108,7 +109,7 @@ namespace Absence.Controllers
 
 		}
 
-		
+
 
 
 
@@ -119,26 +120,49 @@ namespace Absence.Controllers
 		public IActionResult Login(string UserName , string Password)
 		{
 					//verification part
-					User obj = null; 
 					if(UserName == "" && Password == ""){
 						Console.WriteLine("Enter Valid values");
 					}else{
-						 IEnumerable<User> users = _db.User;
-						 foreach(User user in users){
-						 	if(user.UserName == UserName && user.Password == Password){
+							//first students
+						 IEnumerable<Student> students = _db.Students;
+						 IEnumerable<Prof> profs = _db.Profs;
+						 IEnumerable<Admin> admins = _db.Admins;
 
+
+						 foreach(Student student in students){
+						 	if(student.UserName == UserName && student.Password == Password){
 						 		//add session
 						 		//set the value of the session into this key
-						 		HttpContext.Session.SetString("loginSession",JsonConvert.SerializeObject(user));
-						 		obj = user;
-						 		return RedirectToAction("Welcome", new {username = user.UserName});
+						 		HttpContext.Session.SetString("loginSession",JsonConvert.SerializeObject(student));
+						 		return RedirectToAction("Welcome", "Student");
 						 	}
-
 						 }
+
+						 //second Profs
+						 foreach(Prof prof in profs){
+						 	if(prof.UserName == UserName && prof.Password == Password){
+						 		//add session
+						 		//set the value of the session into this key
+						 		HttpContext.Session.SetString("loginSession",JsonConvert.SerializeObject(prof));
+						 		return RedirectToAction("Welcome", "Prof");
+						 	}
+						 }
+
+
+						 foreach(Admin admin in admins){
+						 	if(admin.UserName == UserName && admin.Password == Password){
+						 		//add session
+						 		//set the value of the session into this key
+						 		HttpContext.Session.SetString("loginSession",JsonConvert.SerializeObject(admin));
+						 		return RedirectToAction("Welcome", "Admin");
+						 	}
+						 }
+
+
 
 					}
 
-					return View(obj);
+					return View();
 
 
 		}

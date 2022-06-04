@@ -70,8 +70,10 @@
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Absence.genruntimeconfig.cache
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/Login.cshtml.g.cs
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/Register.cshtml.g.cs
-/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/Welcome.cshtml.g.cs
-/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/AdminDash.cshtml.g.cs
-/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/ProfDash.cshtml.g.cs
-/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/StudentDash.cshtml.g.cs
-/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/User/CompteConsultation.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/Welcome.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/Welcome.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Prof/Welcome.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/StudentDash.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Prof/ProfDash.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/AdminDash.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/CompteConsultation.cshtml.g.cs
