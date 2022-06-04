@@ -77,3 +77,4 @@
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Prof/ProfDash.cshtml.g.cs
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/AdminDash.cshtml.g.cs
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/CompteConsultation.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/Edit.cshtml.g.cs

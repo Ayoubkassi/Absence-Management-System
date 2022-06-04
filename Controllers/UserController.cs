@@ -93,13 +93,13 @@ namespace Absence.Controllers
 		//POST - CREATE
 		[HttpPost]
 	  [ValidateAntiForgeryToken]
-		public IActionResult Register(Admin obj)
+		public IActionResult Register(Student obj)
 		{
 					 if (ModelState.IsValid)
 					 {
 					 		//just for temp user accounts
 					 		//obj.Role="Student";
-							 _db.Admins.Add(obj);
+							 _db.Students.Add(obj);
 							 // _db.Profs.Add(obj);
 							 // _db.Admins.Add(obj);
 							 _db.SaveChanges();

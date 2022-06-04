@@ -42,6 +42,31 @@ namespace Absence.Controllers
 			return View(student);
 		}
 
+		//GET - EDIT
+        public IActionResult Edit()
+        {
+            
+            var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
+            return View(student);
+        }
+
+        //POST - EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Student obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Students.Update(obj);
+                _db.SaveChanges();
+                //update session infos
+                HttpContext.Session.SetString("loginSession",JsonConvert.SerializeObject(obj));
+                return RedirectToAction("CompteConsultation");
+            }
+            return View(obj);
+
+        }
+
 
 
 }
