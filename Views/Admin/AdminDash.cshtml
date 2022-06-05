@@ -34,7 +34,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">Supprimer absence</p>
-		    <a asp-controller="Prof" asp-action="DeleteAbsence" class="btn btn-warning">Start</a>
+		    <a asp-controller="Admin" asp-action="DeleteAbsence" class="btn btn-warning">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -50,7 +50,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gestion du compte</h5>
 		    <p class="card-text">créer un nouveau compte</p>
-		    <a href="#" class="btn btn-secondary">Start</a>
+		    <a asp-controller="Admin" asp-action="CreateNewAccount" class="btn btn-warning">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -61,7 +61,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gestion du compte</h5>
 		    <p class="card-text">modification du compte</p>
-		    <a href="#" class="btn btn-info">Start</a>
+		    <a asp-controller="Admin" asp-action="Edit" class="btn btn-warning">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -71,7 +71,8 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gestion du compte</h5>
 		    <p class="card-text">consultation du compte</p>
-		    <a href="#" class="btn btn-secondary">Start</a>
+		   <a asp-controller="Admin" asp-action="CompteConsultation" class="btn btn-primary">Start</a>
+
 		 </div>
 	</div>
 	</div>
@@ -90,7 +91,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">exporter liste d’absence</p>
-		    <a asp-controller="Prof" asp-action="ExportAbsences" class="btn btn-success">Start</a>
+		    <a asp-controller="Admin" asp-action="ExportAbsences" class="btn btn-success">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -101,7 +102,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">modifier absence d’un étudiant</p>
-		    <a asp-controller="Prof" asp-action="EditeAbsence" class="btn btn-danger">Start</a>
+		    <a asp-controller="Admin" asp-action="EditeAbsence" class="btn btn-danger">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -116,7 +117,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">ajoute Etudiant à une liste</p>
-		    <a asp-controller="Prof" asp-action="AddStudentListe" class="btn btn-warning">Start</a> 
+		    <a asp-controller="Admin" asp-action="AddStudentListe" class="btn btn-warning">Start</a> 
 		 </div>
 	</div>
 	</div>
@@ -126,7 +127,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">import liste étudiant</p>
-		    <a asp-controller="Prof" asp-action="ImportListeStudent" class="btn btn-danger">Start</a> 
+		    <a asp-controller="Admin" asp-action="ImportListeStudent" class="btn btn-danger">Start</a> 
 		 </div>
 	</div>
 	</div>
@@ -137,7 +138,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">export liste étudiant</p>
-		    <a asp-controller="Prof" asp-action="ExcelStudents" class="btn btn-primary">Start</a> 
+		    <a asp-controller="Admin" asp-action="ExcelStudents" class="btn btn-primary">Start</a> 
 		 </div>
 	</div>
 	</div>
@@ -156,7 +157,8 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer l’absence d’un étudiant</h5>
 		    <p class="card-text">Justifier absence</p>
-		    <a href="#" class="btn btn-secondary">Start</a>
+		    <a asp-controller="Admin" asp-action="JustifierAbsence" class="btn btn-success">Start</a>
+
 		 </div>
 	</div>
 	</div>
@@ -166,7 +168,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer l’absence d’un étudiant</h5>
 		    <p class="card-text">consulter les absences</p>
-		    <a href="#" class="btn btn-info">Start</a>
+		    <a asp-controller="Admin" asp-action="GetAbsences" class="btn btn-success">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -176,7 +178,8 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer l’absence d’un étudiant</h5>
 		    <p class="card-text">import un certificat médical</p>
-		    <a href="#" class="btn btn-success">Start</a>
+		    <a asp-controller="Admin" asp-action="JustifierDocuments" class="btn btn-success">Start</a>
+
 		 </div>
 	</div>
 	</div>
@@ -197,7 +200,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer l’absence d’un étudiant</h5>
 		    <p class="card-text">notice d’absence</p>
-		    <a href="#" class="btn btn-primary">Start</a>
+		    <a asp-controller="Admin" asp-action="AddNotice" class="btn btn-success">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -208,7 +211,8 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les filières</h5>
 		    <p class="card-text">Ajouter une nouvelle filière</p>
-		    <a href="#" class="btn btn-primary">Start</a>
+		    		    <a asp-controller="Admin" asp-action="AddFiliere" class="btn btn-success">Start</a>
+
 		 </div>
 	</div>
 	</div>

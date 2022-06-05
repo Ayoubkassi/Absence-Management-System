@@ -1,0 +1,19 @@
+@model Absence.Models.Abse
+
+
+@{
+    ViewData["Title"] = "Export Absences Absence";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center text-primary">Export Absences</h1>
+    <img src="https://s3-eu-central-1.amazonaws.com/cwasset/wp-content/uploads/2020/01/07191308/Ninja-Forms-%E2%80%93-Excel-Export.png" class="center-block mb-4" style="margin-left:10%;"/>
+
+    <a asp-controller="Prof" asp-action="ExcelExport" class="btn btn-primary w-100 mt-4"><i class="fas fa-sign-out-alt"></i> Export</a>
+
+    <a asp-controller="Admin" asp-action="AdminDash" class="btn btn-info mt-4">Back</a>
+
+
+
+</div>
+

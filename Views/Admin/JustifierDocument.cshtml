@@ -1,0 +1,27 @@
+@model Absence.Models.Abse
+
+
+@{
+    ViewData["Title"] = "Import Document";
+}
+
+<form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="JustifierDocumente">
+
+    <div class="container mt-4">
+        <div class="form-group">
+            <p>Load your Justification</p>
+            <input asp-for="DocumentJustification" type="file" name="files" class="form-control" multiple/>
+        </div>
+
+        <input asp-for="StudentId" hidden />
+        <input asp-for="Date" hidden />
+        <input asp-for="Name" hidden />
+
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" class="btn btn-primary" value="Upload Justification" />
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,68 @@
+@model Absence.Models.Filiere
+
+
+@{
+    ViewData["Title"] = "Add Filiere";
+}
+
+<h1 class="text-center text-success mt-4">Add Filiere</h1>
+
+<div class="container mt-4">
+    <form method="post" asp-action="AddFiliere">
+        <div class="form-group row">
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Abreviation"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Abreviation" class="form-control" />
+                        <span asp-validation-for="Abreviation" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Niveau"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Niveau" class="form-control" />
+                        <span asp-validation-for="Niveau" class="text-danger"></span>
+                    </div>
+                </div>
+
+               
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="NomFiliere"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="NomFiliere" class="form-control" />
+                        <span asp-validation-for="NomFiliere" class="text-danger"></span>
+                    </div>
+                </div>
+
+                
+
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-success w-100" value="Add Filiere"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+            </div>
+        </div>
+
+</form>
+
+</div>

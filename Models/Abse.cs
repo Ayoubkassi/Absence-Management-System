@@ -22,6 +22,15 @@ namespace Absence.Models
 
         public Student Student { get; set; } 
 
+        public int IsJustified { get; set; } = 0;
+
+        public string LetterJustification {get ; set;}="";
+
+        public string DocumentJustification {get; set;} ="";
+
+        public string Notice {get ; set;}
+
+
 
 
     }
