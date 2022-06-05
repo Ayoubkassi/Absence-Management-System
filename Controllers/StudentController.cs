@@ -21,7 +21,7 @@ namespace Absence.Controllers
 				_db = db;
 		}
 
-    //Get Login category page
+    //Get Login student page
 		public IActionResult Welcome()
 		{
       var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
@@ -35,7 +35,8 @@ namespace Absence.Controllers
 			return View(student);
 		}
 
-    //Get Register category page
+
+		//get consultation
 		public IActionResult CompteConsultation()
 		{
 			var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));

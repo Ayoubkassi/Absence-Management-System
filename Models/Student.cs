@@ -23,8 +23,12 @@ namespace Absence.Models
         [Required]
         public string Password { get; set; }
 
+        public int ListeId { get; set; } = 0;
+
         
         public List<Abse> Absences { get; set; }
+
+
 
     }
 }

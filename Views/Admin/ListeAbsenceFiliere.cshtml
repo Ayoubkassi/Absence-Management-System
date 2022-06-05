@@ -1,0 +1,121 @@
+@model IEnumerable<Absence.Models.Abse>
+
+@{
+    ViewData["Title"] = "Liste Absence Filiere";
+}
+
+<h1 class="text-center text-success mt-4">Liste Absences Par Filiere</h1>
+
+<div class="container mt-4">
+
+	 @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Absence Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                    	StudentName
+                    </th>
+                    <th>Filiere</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {
+                <tr>
+                    <td width="20%">@obj.Name</td>
+                    <td width="30%">@obj.Date</td>
+                    <td class="text-center">
+                        
+                        <p style="color:transparent;width : 0 ; height : 0" class="name">@obj.StudentId</p>
+
+    
+                        <p class="getdatestring"></p>
+                    </td>
+
+                    <td>
+                        <p class="filiere"></p>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <a asp-controller="Admin" asp-action="AdminDash" class="btn btn-info mt-4">Back</a>
+
+    }
+    else
+    {
+        <p> No absences exists.</p>
+        <a asp-controller="Admin" asp-action="AdminDash" class="btn btn-info mt-4">Back</a>
+
+    }
+
+
+</div>
+
+
+
+
+
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <script>
+
+    $(document).ready(function(){
+
+        var name = document.querySelectorAll(".name");
+                console.log(name[0].innerHTML);
+                console.log(name[1].innerHTML);
+        var messages = document.querySelectorAll(".getdatestring");
+
+        names = [];
+        var k = 0;
+        name.forEach(ele => names[k++] = ele.innerHTML);
+        var i = 0;
+        $.each(names, function(index, value) {
+            $.ajax({
+            type : "GET",
+            url : "getStudentName",
+            data : {id : value},
+            success : function(msg){
+                messages[i++].textContent = msg;
+                console.log(msg);
+            },
+            error : function(req,status,error){
+                alert(error);
+            }
+        })
+        });
+
+       var filieres = document.querySelectorAll(".filiere");
+       var j = 0;
+       $.each(names, function(index, value) {
+            $.ajax({
+            type : "GET",
+            url : "getFiliere",
+            data : {id : value},
+            success : function(msg){
+                filieres[j++].textContent = msg;
+                console.log(msg);
+            },
+            error : function(req,status,error){
+                alert(error);
+            }
+        })
+        });
+
+
+
+        
+    }
+
+
+
+    );
+ </script>

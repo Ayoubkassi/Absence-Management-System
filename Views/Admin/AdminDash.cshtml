@@ -13,7 +13,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">Liste d’absence des étudiants par filière</p>
-		    <a href="#" class="btn btn-success">Start</a>
+		    <a asp-controller="Admin" asp-action="ListeAbsenceFiliere" class="btn btn-info">Start</a>
 		  </div>
 			</div>
 	</div>
@@ -24,8 +24,8 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">Ajouter une absence d’un étudiant</p>
-		    <a href="#" class="btn btn-primary">Start</a>
-		 </div>
+			<a asp-controller="Prof" asp-action="AjouterAbsence" class="btn btn-primary">Start</a>
+	</div>
 	</div>
 	</div>
 
@@ -34,7 +34,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">Supprimer absence</p>
-		    <a href="#" class="btn btn-warning">Start</a>
+		    <a asp-controller="Prof" asp-action="DeleteAbsence" class="btn btn-warning">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -89,8 +89,8 @@
 		<div class="card" style="width: 18rem;">
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
-		    <p class="card-text">exporter liste d’absence<</p>
-		    <a href="#" class="btn btn-success">Start</a>
+		    <p class="card-text">exporter liste d’absence</p>
+		    <a asp-controller="Prof" asp-action="ExportAbsences" class="btn btn-success">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -101,7 +101,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les absences</h5>
 		    <p class="card-text">modifier absence d’un étudiant</p>
-		    <a href="#" class="btn btn-danger">Start</a>
+		    <a asp-controller="Prof" asp-action="EditeAbsence" class="btn btn-danger">Start</a>
 		 </div>
 	</div>
 	</div>
@@ -116,7 +116,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">ajoute Etudiant à une liste</p>
-		    <a href="#" class="btn btn-warning">Start</a>
+		    <a asp-controller="Prof" asp-action="AddStudentListe" class="btn btn-warning">Start</a> 
 		 </div>
 	</div>
 	</div>
@@ -126,7 +126,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">import liste étudiant</p>
-		    <a href="#" class="btn btn-danger">Start</a>
+		    <a asp-controller="Prof" asp-action="ImportListeStudent" class="btn btn-danger">Start</a> 
 		 </div>
 	</div>
 	</div>
@@ -137,7 +137,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Gérer les étudiants par filière</h5>
 		    <p class="card-text">export liste étudiant</p>
-		    <a href="#" class="btn btn-primary">Start</a>
+		    <a asp-controller="Prof" asp-action="ExcelStudents" class="btn btn-primary">Start</a> 
 		 </div>
 	</div>
 	</div>

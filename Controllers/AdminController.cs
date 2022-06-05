@@ -35,6 +35,28 @@ namespace Absence.Controllers
 			return View(admin);
 		}
 
+		public IActionResult ListeAbsenceFiliere()
+		{
+			IEnumerable<Abse> absences = _db.Absences;
+    	return View(absences);
+		}
+
+		public string getStudentName(int id)
+		{
+			var obj = _db.Students.Find(id);
+			return obj.UserName;
+		}
+
+		public string getFiliere(int id)
+		{
+			var obj = _db.Students.Find(id);
+			List<string> listeValues = new List<string>(new string[] { "No Filiere" , "Genie Electrique", "Reseau et systeme", "Genie Informatique" });
+			return listeValues[obj.ListeId];
+
+		}
+
+
+
 
 
 }
