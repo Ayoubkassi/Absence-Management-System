@@ -121,3 +121,11 @@
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/AddNotice.cshtml.g.cs
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/NoticeAdd.cshtml.g.cs
 /home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/AddFiliere.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/JustifierLettre.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/JustifierLettres.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/JustifierDocument.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/JustifierDocuments.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/NoticeAbsence.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/AbsenceDetail.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Student/ConsulterAbsence.cshtml.g.cs
+/home/ryota/Documents/Absence/obj/Debug/net5.0/Razor/Views/Admin/DeleteA.cshtml.g.cs

@@ -1,0 +1,60 @@
+@model IEnumerable<Absence.Models.Abse>
+
+
+@{
+    ViewData["Title"] = "Edit Absence";
+}
+
+<h1 class="text-center text-success mt-4">Liste Absences</h1>
+
+<div class="container mt-4">
+
+	 @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Absence Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        isJustified
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td width="30%">@obj.Date</td>
+                    <td>@obj.IsJustified</td>
+                    <td>
+                        <a asp-controller="Student" asp-route-Id="@obj.Id" asp-action="JustifierLettre" class="btn btn-success mx-2">
+                                Justifier
+                            </a>
+                    </td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-info mt-4">Back</a>
+
+    }
+    else
+    {
+        <p> No absences exists.</p>
+        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-info mt-4">Back</a>
+
+    }
+
+
+</div>

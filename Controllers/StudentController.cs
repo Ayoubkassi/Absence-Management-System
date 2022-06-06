@@ -68,6 +68,162 @@ namespace Absence.Controllers
 
         }
 
+        public IActionResult JustifierLettres()
+        {
+
+        	//get session variable
+        	var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
+        	IEnumerable<Abse> absences = _db.Absences;
+        	List<Abse> myAbsences = new List<Abse>();
+        	foreach(Abse abs in absences)
+        	{
+        		if(abs.StudentId == student.IdStudent)
+        		{
+        			myAbsences.Add(abs);
+        		}
+        	}
+    			return View(myAbsences);
+        }
+
+        public IActionResult JustifierLettre(int? id)
+        {
+        	if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Console.WriteLine("Enter edit");
+            var obj = _db.Absences.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult JustifierAb(Abse obj)
+    {
+            if (ModelState.IsValid)
+            {
+            			obj.IsJustified = 1;
+                _db.Absences.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("JustifierLettres");
+            }
+             return RedirectToAction("JustifierLettres");
+            
+
+    }
+
+
+
+    public IActionResult JustifierDocuments()
+        {
+
+        	//get session variable
+        	var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
+        	IEnumerable<Abse> absences = _db.Absences;
+        	List<Abse> myAbsences = new List<Abse>();
+        	foreach(Abse abs in absences)
+        	{
+        		if(abs.StudentId == student.IdStudent)
+        		{
+        			myAbsences.Add(abs);
+        		}
+        	}
+    			return View(myAbsences);
+        }
+
+
+        public IActionResult JustifierDocument(int? id)
+        {
+        	if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Console.WriteLine("Enter edit");
+            var obj = _db.Absences.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult JustifierDocument(Abse obj)
+    {
+    	if (ModelState.IsValid)
+            {
+            			obj.IsJustified = 1;
+                _db.Absences.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("StudentDash");
+            }
+             return RedirectToAction("StudentDash");
+
+    }
+
+
+    public IActionResult NoticeAbsence()
+    {
+    	return View();
+    }
+
+    public IActionResult AddNoticeAbsence(Abse abs)
+    {
+				var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
+    		abs.StudentId = student.IdStudent;
+    		abs.Notice="0";
+    	 if (ModelState.IsValid)
+					 {
+							 _db.Absences.Add(abs);
+							 _db.SaveChanges();
+							 return RedirectToAction("StudentDash");
+					 }
+					 return View("StudentDash");
+    }
+
+
+    public IActionResult ConsulterAbsence()
+    {
+    			//get session variable
+        	var student = JsonConvert.DeserializeObject<Student>(HttpContext.Session.GetString("loginSession"));
+        	IEnumerable<Abse> absences = _db.Absences;
+        	List<Abse> myAbsences = new List<Abse>();
+        	foreach(Abse abs in absences)
+        	{
+        		if(abs.StudentId == student.IdStudent)
+        		{
+        			myAbsences.Add(abs);
+        		}
+        	}
+    			return View(myAbsences);
+    }
+
+    public IActionResult AbsenceDetail(int? id)
+    {
+    	if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Absences.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+    }
+
+
+
+
 
 
 }

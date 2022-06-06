@@ -255,6 +255,39 @@ namespace Absence.Controllers
 
     }
 
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteAb(int? id)
+    {
+            var obj = _db.Absences.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+                _db.Absences.Remove(obj);
+                _db.SaveChanges();
+                return RedirectToAction("GetAbsences");
+            
+
+    }
+
+    public IActionResult DeleteA(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Absences.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+    
+
     public IActionResult GetAbsences()
     {
     	IEnumerable<Abse> absences = _db.Absences;
