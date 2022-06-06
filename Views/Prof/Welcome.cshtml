@@ -5,17 +5,45 @@
 }
 
 
-    <h1 class="display-4">Hello Prof</h1>
-
-    <div class="jumbotron">
-      <h1 class="display-4">Hello @Html.DisplayFor(model => model.UserName)</h1>
-      <p class="lead">Hey Hey And Welcome Again This is Our Application To Manage Absence </p>
-      <hr class="my-4">
-      <p>This is Project of DotNet Technologie , Supervised By Profesor Aouatif Amine</p>
-      <p class="lead">
+<header id="header" class="fixed-top" style="margin: 0px;">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+    <div class="container d-flex align-items-center justify-content-between">
+            <img src="~/images/logo_transparent6.png" width="120" height="120" class="d-inline-block align-top" alt="">
+    </a>
 
 
-            <a class="btn btn-primary btn-lg" asp-controller="Prof" asp-action="ProfDash" role="button">Dashboard</a>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      </p>
+      <nav id="navbar" class="navbar">
+
+          <a class="getstarted scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+          @* <li><a class="nav-link scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li> *@
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Hello Prof @Html.DisplayFor(model => model.UserName)</h1>
+          <h2>Pour accéder à votre dashboard, ...</h2>
+          <div class="d-flex">
+            @* <a asp-area="" asp-controller="User" asp-action="Register" class="btn-get-started scrollto">Register</a> *@
+            <a class="btn btn-primary btn-lg" asp-controller="Prof" asp-action="ProfDash" role="button">Dashboard</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="~/images/undraw_educator_re_s3jk.svg" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->

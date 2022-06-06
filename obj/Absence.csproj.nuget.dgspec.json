@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ryota/Documents/Absence/Absence.csproj": {}
+    "/home/ryota/Downloads/ProjetFinal/final/Absence-Management-System-main/Absence.csproj": {}
   },
   "projects": {
-    "/home/ryota/Documents/Absence/Absence.csproj": {
+    "/home/ryota/Downloads/ProjetFinal/final/Absence-Management-System-main/Absence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ryota/Documents/Absence/Absence.csproj",
+        "projectUniqueName": "/home/ryota/Downloads/ProjetFinal/final/Absence-Management-System-main/Absence.csproj",
         "projectName": "Absence",
-        "projectPath": "/home/ryota/Documents/Absence/Absence.csproj",
+        "projectPath": "/home/ryota/Downloads/ProjetFinal/final/Absence-Management-System-main/Absence.csproj",
         "packagesPath": "/home/ryota/.nuget/packages/",
-        "outputPath": "/home/ryota/Documents/Absence/obj/",
+        "outputPath": "/home/ryota/Downloads/ProjetFinal/final/Absence-Management-System-main/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ryota/.nuget/NuGet/NuGet.Config"
@@ -46,6 +46,18 @@
               "target": "Package",
               "version": "[49.0.1017, )"
             },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.7.29, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.7.29, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.7.29, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -69,6 +81,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.0-alpha.2, )"
             }
           },
           "imports": [

@@ -66,14 +66,11 @@
 
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
  <script>
-
     $(document).ready(function(){
-
         var name = document.querySelectorAll(".name");
                 console.log(name[0].innerHTML);
                 console.log(name[1].innerHTML);
         var messages = document.querySelectorAll(".getdatestring");
-
         names = [];
         var k = 0;
         name.forEach(ele => names[k++] = ele.innerHTML);
@@ -92,7 +89,6 @@
             }
         })
         });
-
        var filieres = document.querySelectorAll(".filiere");
        var j = 0;
        $.each(names, function(index, value) {
@@ -109,13 +105,7 @@
             }
         })
         });
-
-
-
         
     }
-
-
-
     );
  </script>

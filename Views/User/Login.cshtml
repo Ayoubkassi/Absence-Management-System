@@ -4,7 +4,7 @@
     ViewData["Title"] = "Login";
 }
 
-
+@* 
 <form method="post" asp-action="Login">
     <div class="border p-3">
         <div class="form-group row">
@@ -50,4 +50,125 @@
         </div>
     </div>
 
-</form>
+</form> *@
+@* 
+<div class="form-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+                <div class="form-container">
+                    <div class="form-icon">
+                        <i class="fa fa-user-circle"></i>
+                        <span class="signup"><a href=""></a></span>
+                    </div>
+                    <form class="form-horizontal">
+                        <h3 class="title">Member Login</h3>
+                        <div class="form-group">
+                            <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                            <input class="form-control" asp-for="UserName" placeholder="Username">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <span class="input-icon"><i class="fa fa-lock"></i></span>
+                            <input class="form-control" asp-for="Password" type="password" placeholder="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col">
+                            <input type="submit" class="btn signin" value="Login"/>
+                        </div>
+
+                        <div class="col">
+                             <a asp-action="Register" class="btn signin"><i class="fas fa-sign-out-alt"></i> Register</a>
+                        </div>
+                        <span class="forgot-pass"><a href="#">Forgot Username/Password?</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+  <header id="header" class="fixed-top" style="margin: 0px;">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+    <div class="container d-flex align-items-center justify-content-between">
+            <img src="~/images/logo_transparent6.png" width="120" height="120" class="d-inline-block align-top" alt="">
+    </a>
+
+
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="getstarted scrollto" asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
+          @* <li><a class="nav-link scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li> *@
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="~/images/login.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Log in</h3>
+              <p class="mb-4"></p>
+            </div>
+            <form method="post" asp-action="Login">
+              <div class="form-group first">
+                 
+                <label asp-for="UserName">Username</label>
+                <input type="text" class="form-control" asp-for="UserName" id="username">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+
+
+              </div>
+              <div class="form-group last mb-4">
+
+                <label asp-for="Password">Password</label>
+                <input type="password" class="form-control" id="password" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+                
+              </div>
+              
+              <div class="d-flex mb-5 align-items-center">
+                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                  <input type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div>
+                </label>
+                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
+              </div>
+
+              <input type="submit" value="Login" class="btn btn-block" style="background-color: #6c63ff; color: white">
+            @* <a asp-action="Register" class="btn btn-block" style="background-color: #ffb663; color: white"><i class="fas fa-sign-out-alt"></i>Register</a> *@
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-block" style="background-color: #ffb663; color: white" ><i class="fas fa-sign-out-alt"></i>Retour</a>
+
+
+              
+            </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  

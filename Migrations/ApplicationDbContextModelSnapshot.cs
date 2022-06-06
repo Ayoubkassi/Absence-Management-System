@@ -2,7 +2,6 @@
 using Absence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Absence.Migrations
@@ -14,34 +13,32 @@ namespace Absence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Absence.Models.Abse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
                     b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("DocumentJustification")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("IsJustified")
                         .HasColumnType("int");
 
                     b.Property<string>("LetterJustification")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Notice")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
@@ -57,20 +54,19 @@ namespace Absence.Migrations
                 {
                     b.Property<int>("IdAdmin")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("IdAdmin");
 
@@ -81,20 +77,19 @@ namespace Absence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
                     b.Property<string>("Abreviation")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Niveau")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("NomFiliere")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
@@ -105,20 +100,19 @@ namespace Absence.Migrations
                 {
                     b.Property<int>("IdProf")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("IdProf");
 
@@ -129,23 +123,22 @@ namespace Absence.Migrations
                 {
                     b.Property<int>("IdStudent")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("ListeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("IdStudent");
 

@@ -5,8 +5,8 @@
 }
 
 
-<form method="post" asp-action="Register">
-    <div class="border p-3">
+@*<form method="post" asp-action="Register">*@
+    @* <div class="border p-3">
         <div class="form-group row">
             <h2 class="text-info pl-3">Register</h2>
         </div>
@@ -60,6 +60,62 @@
             <div class="col-4">
             </div>
         </div>
-    </div>
+    </div> *@
 
-</form>
+    <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="~/images/login.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3>Register</h3>
+              <p class="mb-4"></p>
+            </div>
+            <form method="post" asp-action="Register">
+              <div class="form-group first">
+
+
+                <label asp-for="UserName">Username</label>
+                <input type="text" class="form-control" asp-for="UserName" id="username">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group last mb-4">
+
+                <label asp-for="Email">Email</label>
+                <input type="email" class="form-control" id="email" asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                
+              </div>
+
+              <div class="form-group last mb-4">
+
+                <label asp-for="Password">Password</label>
+                <input type="password" class="form-control" id="password" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+                
+              </div>
+              
+
+
+              <input type="submit" value="Register" class="btn btn-block" style="background-color: #6c63ff; color: white">
+              <a asp-action="Login" class="btn btn-block" style="background-color: #ffb663; color: white"><i class="fas fa-sign-out-alt"></i> Login</a>
+
+              
+            </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+@* </form> *@
+

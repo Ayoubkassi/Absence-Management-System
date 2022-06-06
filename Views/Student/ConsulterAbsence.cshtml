@@ -5,7 +5,7 @@
     ViewData["Title"] = "Consulter Absence";
 }
 
-<h1 class="text-center text-success mt-4">Liste Absences</h1>
+<h1 class="text-center mt-4" style ="color: #6c63ff;">Liste Absences</h1>
 
 <div class="container mt-4">
 
@@ -15,13 +15,13 @@
             <thead>
                 <tr>
                     <th>
-                        Absence Name
+                        Nom Absence
                     </th>
                     <th>
                         Date
                     </th>
                     <th>
-                        isJustified
+                        Justification
                     </th>
                     <th>
                         Details
@@ -46,13 +46,13 @@
             </tbody>
         </table>
 
-        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-info mt-4">Back</a>
+        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-warning mt-4">Back</a>
 
     }
     else
     {
-        <p> No absences exists.</p>
-        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-info mt-4">Back</a>
+        <p> Zucune Absence pour l'instant.</p>
+        <a asp-controller="Student" asp-action="StudentDash" class="btn btn-warning mt-4">Back</a>
 
     }
 

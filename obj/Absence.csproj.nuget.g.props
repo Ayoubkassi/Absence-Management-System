@@ -20,5 +20,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">/home/ryota/.nuget/packages/microsoft.entityframeworkcore.tools/5.0.0</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgHangfire_SqlServer Condition=" '$(PkgHangfire_SqlServer)' == '' ">/home/ryota/.nuget/packages/hangfire.sqlserver/1.7.29</PkgHangfire_SqlServer>
   </PropertyGroup>
 </Project>

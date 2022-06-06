@@ -1,10 +1,334 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h3 style="color: #2f75fb;">Absence Management System.</h3>
+<header id="header" class="fixed-top" style="margin: 0px;">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+    <div class="container d-flex align-items-center justify-content-between">
+            <img src="~/images/logo_transparent6.png" width="120" height="120" class="d-inline-block align-top" alt="">
+    </a>
 
-    <img src="https://www.actiplans.com/wp-content/uploads/2021/10/Leave-Request-Management-pic.png" style="height:380px;" />
-</div>
+
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="index.html#faq">FAQ</a></li>
+         <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
+          @* <li><a class="nav-link scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li> *@
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Bienvenu à la gestion d'absence MASIR</h1>
+          <h2>Faciliter la gestion des absences des étudiants de votre établissement avec notre service MASIR qui offre une multitude de fonctionnalités disponibles pour les administrateurs, les professeurs et les étudiants !</h2>
+          <div class="d-flex">
+            @* <a asp-area="" asp-controller="User" asp-action="Register" class="btn-get-started scrollto">Register</a> *@
+            <a class="btn-get-started scrollto" href="index.html#services">More</a>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Vidéo démo</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="~/assets/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+<!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="assets/img/about.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>About</h3>
+            <p class="fst-italic">
+              Projet ASP .NET Core 5 MVC réalisé par les étudiants en Génie Informatique S8 sous l'encadrement de notre professeur Aouatif AMINE
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i>Gestion des absences pour les administrateurs</li>
+              <li><i class="bi bi-check-circle"></i>Gestion des absences pour les professeurs</li>
+              <li><i class="bi bi-check-circle"></i>Gestion des absences pour les étudiants</li>
+            </ul>
+            <p>
+              Programming is like any other sport. You might know the rules but you have to play to learn. - M. Zuckerberg
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Services</span>
+          <h2>Services</h2>
+          <p>Ceci n'est qu'une petite introduction des fonctionnalités qu'on vous offre !</p>
+        </div>
+
+        <div class="row">
+          
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Importation et exporation des listes des étudiants</a></h4>
+              @* <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p> *@
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="">Justification des absences et importation de certificats médicaux</a></h4>
+              @* <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p> *@
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4><a href="">Gestion des élèves et des absences par fillières</a></h4>
+              @* <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p> *@
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section>
+  <!-- End Services Section -->
+
+<!-- ======= Featured Services Section ======= -->
+    <section id="faq" class="featured-services">
+      <div class="container">
+        <div class="section-title">
+          <span>FAQ</span>
+          <h2>FAQ</h2>
+          <p>Rubrique qui regroupe les réponses aux questions les plus fréquemment posées.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-laptop"></i></div>
+              <h4 class="title"><a href="">Comment s'inscrire sur votre site ?</a></h4>
+              <p class="description">Veuillez vous reférer à votre établissements pour qu'un admin puisse créer votre compte</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-card-checklist"></i></div>
+              <h4 class="title"><a href="">Une question ?</a></h4>
+              <p class="description">Une réponse</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-clipboard-data"></i></div>
+              <h4 class="title"><a href="">Une question ?</a></h4>
+              <p class="description">Une réponse</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+
+<!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Team</span>
+          <h2>Team</h2>
+          <p>Notre équipe de jeunes motivés et passionés dont les initiales forment le projet MASIR</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team1.png" alt="">
+              <h4>El Azzaoui Maroua</h4>
+              <span>funny introduction</span>
+              <p>
+                funny introduction
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team2.png" alt="">
+              <h4>Kassi Ayoub</h4>
+              <span>funny introduction</span>
+              <p>
+                funny introduction
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="assets/img/team/team1.png" alt="">
+              <h4>Oubahassou Sanae</h4>
+              <span>funny introduction</span>
+              <p>
+                funny introduction
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">  
+            <div class="member">
+              <img src="assets/img/team/team1.png" alt="">
+              <h4>Sahmi Ihssan</h4>
+              <span>funny introduction</span>
+              <p>
+                funny introduction
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">  
+            
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">  
+            <div class="member">
+              <img src="assets/img/team/team1.png" alt="">
+              <h4>Tigrioui Rhita</h4>
+              <span>funny introduction</span>
+              <p>
+                funny introduction
+              </p>
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+<!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>Contact</h2>
+          <p>Des questions ?</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Ecole Nationale des Sciences Appliquées de Kénitra</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>MASIR@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+212 625 11 73 39</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Nom et Prénom</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Sujet</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Message envoyé avec succès, Merci !</div>
+              </div>
+              <div class="text-center"><button type="submit">Envoyer</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->

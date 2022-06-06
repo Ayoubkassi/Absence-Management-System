@@ -405,7 +405,7 @@ namespace Absence.Controllers
 	                    		{
 	                    			if(s == cell.Value.ToString() && j==0)
 	                    			{
-	                    				Console.WriteLine("H ="+h);
+	                    				//Console.WriteLine("H ="+h);
 	                    				break;
 	                    			}
 	                    			h++;
@@ -415,19 +415,25 @@ namespace Absence.Controllers
 	                    		Console.WriteLine("J = "+j);
 	                    		//we got the id now we must just
 	                    		if(j != 0 && (h != 0 && h < listeValues.Count) ){
-	                    				Console.WriteLine("ldakhel : "+j);
+	                    				//Console.WriteLine("ldakhel : "+j);
        												IEnumerable<Student> students = _db.Students;
        												foreach(Student std in students)
        												{
        													Console.WriteLine(std.Email + " -> " + cell.Value);
        													if(std.Email == cell.Value.ToString())
        													{
-       														Console.WriteLine("l9iiito");
-       														std.ListeId = h;
+       														//Console.WriteLine("l9iiito");
+                                                            Console.WriteLine(std.UserName);
+                                                            Console.WriteLine(std.ListeId);
+       														std.ListeId = ++h;
        														//create new one with same properties remove and add
        														_db.Students.Update(std);
+                                                            Console.WriteLine(std.UserName);
+                                                            Console.WriteLine(std.ListeId);
+
 
        													}
+                                                        
        												}
 	                    		}
 	                    }

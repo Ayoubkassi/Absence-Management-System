@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Absence.Data;
 using Absence.Models;
+using Hangfire;
+using Hangfire.SqlServer;
 
 
 namespace Absence
@@ -39,11 +41,30 @@ namespace Absence
                     options.IdleTimeout = TimeSpan.FromMinutes(15);
                 });
 
+            // Add Hangfire services.
+    services.AddHangfire(configuration => configuration
+        .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+        .UseSimpleAssemblyNameTypeSerializer()
+        .UseRecommendedSerializerSettings()
+        .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+        {
+            CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+            SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+            QueuePollInterval = TimeSpan.Zero,
+            UseRecommendedIsolationLevel = true,
+            DisableGlobalLocks = true
+        }));
+
+    // Add the processing server as IHostedService
+    services.AddHangfireServer();
+
+
+
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IBackgroundJobClient backgroundJobs,IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -59,6 +80,8 @@ namespace Absence
             app.UseStaticFiles();
 
             app.UseRouting();
+                app.UseHangfireDashboard();
+    backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
 
             app.UseSession();
 
@@ -69,7 +92,12 @@ namespace Absence
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+
+
+                endpoints.MapHangfireDashboard();
+            }
+
+            );
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Absence.Controllers
     //Get Login category page
 		public IActionResult Welcome()
 		{
-      var admin = JsonConvert.DeserializeObject<Admin>(HttpContext.Session.GetString("loginSession"));
+            var admin = JsonConvert.DeserializeObject<Admin>(HttpContext.Session.GetString("loginSession"));
 			return View(admin);
 		}
 
@@ -43,7 +43,7 @@ namespace Absence.Controllers
 		public IActionResult ListeAbsenceFiliere()
 		{
 			IEnumerable<Abse> absences = _db.Absences;
-    	return View(absences);
+    	    return View(absences);
 		}
 
 		public string getStudentName(int id)
@@ -60,6 +60,27 @@ namespace Absence.Controllers
 
 		}
 
+
+            public IActionResult AjouterAbsence()
+                    {
+                            //IEnumerable<Student> students = _db.Students;
+                            return View();
+                    }
+
+
+                    [HttpPost]
+                [ValidateAntiForgeryToken]
+                public IActionResult AddAbsence(Abse obj)
+                {
+                        if (ModelState.IsValid)
+                        {
+                            _db.Absences.Add(obj);
+                            _db.SaveChanges();
+                            return RedirectToAction("AdminDash");
+                        }
+                        return View(obj);
+
+                }
 		public IActionResult DeleteAbsence()
     {
     	IEnumerable<Abse> absences = _db.Absences;
@@ -342,7 +363,117 @@ namespace Absence.Controllers
     	return View();
     }
 
+    [HttpPost]
+    public async Task<IActionResult> ImportListeStudent (List<IFormFile> files)
+    {
+    	var size = files.Sum(f => f.Length);
 
+    	var filePaths = new List<string>();
+    	foreach(var formFile in files)
+    	{
+    		if(formFile.Length > 0)
+    		{
+    			var filePath = Path.Combine(Directory.GetCurrentDirectory(), formFile.FileName);
+    			filePaths.Add(filePath);
+
+    			using(var stream = new FileStream(filePath , FileMode.Create))
+    			{
+    					await formFile.CopyToAsync(stream);
+    			}
+    		}
+    	}
+
+    	//change in db remove and add new labels
+    	List<string> listeValues = new List<string>(new string[] { "No Filiere", "Genie Electrique", "Reseau et systeme" , "Genie Informatique" });
+    	SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
+    	var workbook = ExcelFile.Load(filePaths[0]);
+
+    	var sb = new StringBuilder();
+
+        // Iterate through all worksheets in an Excel workbook.
+        foreach (var worksheet in workbook.Worksheets)
+        {
+            sb.AppendLine();
+            sb.AppendFormat("{0} {1} {0}", new string('-', 25), worksheet.Name);
+
+            // Iterate through all rows in an Excel worksheet.
+            int k = 0;
+            int h =0;
+
+            foreach (var row in worksheet.Rows)
+            {
+
+                sb.AppendLine();
+
+
+                int j = -1;
+                // Iterate through all allocated cells in an Excel row.
+                foreach (var cell in row.AllocatedCells)
+                		{
+                			j++;
+	                    if (cell.ValueType != CellValueType.Null)
+	                    {
+	                        sb.Append(string.Format("{0} [{1}]", cell.Value, cell.ValueType).PadRight(25));
+	                    		//Console.WriteLine(cell.Value);
+	                    		//here i have the value i must just get the id
+	                    		if(j == 0){ 
+	                    		foreach(string s in listeValues)
+	                    		{
+	                    			if(s == cell.Value.ToString() && j==0)
+	                    			{
+	                    				//Console.WriteLine("H ="+h);
+	                    				break;
+	                    			}
+	                    			h++;
+	                    		}
+	                    	}
+
+	                    		Console.WriteLine("J = "+j);
+	                    		//we got the id now we must just
+	                    		if(j != 0 && (h != 0 && h < listeValues.Count) ){
+	                    				//Console.WriteLine("ldakhel : "+j);
+       												IEnumerable<Student> students = _db.Students;
+       												foreach(Student std in students)
+       												{
+       													//Console.WriteLine(std.Email + " -> " + cell.Value);
+       													if(std.Email == cell.Value.ToString())
+       													{
+       														//Console.WriteLine("l9iiito");
+                                                            Console.WriteLine("Before");
+                                                            Console.WriteLine(std.UserName);
+                                                            Console.WriteLine(std.ListeId);
+       														std.ListeId = ++h;
+                                                            Console.WriteLine("h =" + h);
+       														//create new one with same properties remove and add
+       														_db.Students.Update(std);
+                                                            Console.WriteLine(std.UserName);
+                                                            Console.WriteLine(std.ListeId);
+                                                            Console.WriteLine("After");
+
+       													}
+       												}
+	                    		}
+	                    }
+	                    else
+	                        sb.Append(new string(' ', 25));
+                    }
+
+
+
+                k++;
+            }
+        }
+
+        //Console.WriteLine(sb.ToString());
+        _db.SaveChanges();
+
+
+
+    	return RedirectToAction("AdminDash");
+
+    }
+
+    
 
 
      public IActionResult ExcelStudents()

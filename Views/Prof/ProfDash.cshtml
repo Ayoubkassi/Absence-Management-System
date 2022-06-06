@@ -1,143 +1,336 @@
 @model Absence.Models.Prof
 
 @{
-    ViewData["Title"] = "Prof Dashboard";
+
+
+
+
+
+
+
+	ViewData["Title"] = "Prof Dashboard";
 }
 
+<header id="header" class="fixed-top" style="margin: 0px;">
+	<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+		<div class="container d-flex align-items-center justify-content-between">
+			<img src="~/images/logo_transparent6.png" width="120" height="120" class="d-inline-block align-top" alt="">
+	</a>
 
-<h1>Hello Prof</h1>
+	<!-- Uncomment below if you prefer to use an image logo -->
+	<!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+	<nav id="navbar" class="navbar">
 
-<div class="row mt-4">
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les absences de ses classes</h5>
-		    <p class="card-text">Liste d’absence des étudiants</p>
-		    <a asp-controller="Prof" asp-action="GetAbsences" class="btn btn-success">Start</a>
-		  </div>
+		<a class="getstarted scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+		@* <li><a class="nav-link scrollto" asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li> *@
+
+		</ul>
+		<i class="bi bi-list mobile-nav-toggle"></i>
+	</nav><!-- .navbar -->
+
+	</div>
+</header><!-- End Header -->
+
+<div class="container" style="margin-top: 200px;">
+	<!-- row 1 -->
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card card-margin">
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-primary">
+								<span class="widget-49-date-day">1</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les absences</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Liste d’absence des étudiants par filière</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="GetAbsences"
+								class="btn btn-sm btn-flash-border-primary">Démarrer</a>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card card-margin">
+
+
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">2</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les absences</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Ajouter une absence d’un étudiant</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="AjouterAbsence"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4">
+			<div class="card card-margin">
+
+
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">3</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les absences</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Supprimer une absence</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="DeleteAbsence"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- row 2 -->
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card card-margin">
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-primary">
+								<span class="widget-49-date-day">4</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les abscences</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Exporter liste d’absence</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="ExportAbsences"
+								class="btn btn-sm btn-flash-border-primary">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card card-margin">
+
+
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">5</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les absences</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Modifier absence d’un étudiant</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="EditeAbsence"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4">
+			<div class="card card-margin">
+
+
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">6</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gestion du compte</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Modification du compte</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="Edit"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les absences de ses classes</h5>
-		    <p class="card-text">Ajouter une absence d’un étudiant</p>
-		    <a asp-controller="Prof" asp-action="AjouterAbsence" class="btn btn-secondary">Start</a>
-		 </div>
-	</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les absences de ses classes</h5>
-		    <p class="card-text">Supprimer absence (cas d’étudiant en retard)</p>
-		     <a asp-controller="Prof" asp-action="DeleteAbsence" class="btn btn-warning">Start</a>
-		 </div>
-	</div>
-	</div>
-
-
-</div>
-
-
-<div class="row mt-4">
-
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les absences de ses classes</h5>
-		    <p class="card-text">exporter liste d’absence</p>
-		    <a asp-controller="Prof" asp-action="ExportAbsences" class="btn btn-warning">Start</a>
-		 </div>
-	</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les absences de ses classes</h5>
-		    <p class="card-text">modifier absence d’un étudiant (exemple : 8 à 10 vers 8 à 12)</p>
-		   <a asp-controller="Prof" asp-action="EditeAbsence" class="btn btn-danger">Start</a> 
-		 </div>
-	</div>
-	</div>
+	<!-- row 3 -->
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card card-margin">
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-primary">
+								<span class="widget-49-date-day">7</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gestion du compte</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Consultation du compte</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="CompteConsultation"
+								class="btn btn-sm btn-flash-border-primary">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card card-margin">
 
 
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gestion du compte</h5>
-		    <p class="card-text">modification du compte</p>
-		   <a asp-controller="Prof" asp-action="Edit" class="btn btn-info">Start</a> 
-		 </div>
-	</div>
-	</div>
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">8</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les listes des étudiants</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Ajouter Etudiant à une liste</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="AddStudentListe"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-4">
+			<div class="card card-margin">
 
 
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-warning">
+								<span class="widget-49-date-day">9</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les listes des étudiants</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Importer la liste des étudiants</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="ImportListeStudent"
+								class="btn btn-sm btn-flash-border-warning">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--End row 3 -->
 
+	<!-- row 4 -->
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card card-margin">
+				<div class="card-header no-border">
+					<h5 class="card-title"></h5>
+				</div>
+				<div class="card-body pt-0">
+					<div class="widget-49">
+						<div class="widget-49-title-wrapper">
+							<div class="widget-49-date-primary">
+								<span class="widget-49-date-day">10</span>
+								<span class="widget-49-date-month"></span>
+							</div>
+							<div class="widget-49-meeting-info">
+								<span class="widget-49-pro-title">Gérer les listes des étudiants</span>
+							</div>
+						</div>
+						<ul class="widget-49-meeting-points">
+							<li class="widget-49-meeting-item"><span>Exporter la liste des étudiants</span></li>
+						</ul>
+						<div class="widget-49-meeting-action">
+							<a asp-controller="Prof" asp-action="ExcelStudents"
+								class="btn btn-sm btn-flash-border-primary">Démarrer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--End row 4 -->
+</div>	<!--End container -->
 
-</div>
-
-
-<div class="row mt-4">
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gestion du compte</h5>
-		    <p class="card-text">consultation du compte</p>
-		   <a asp-controller="Prof" asp-action="CompteConsultation" class="btn btn-primary">Start</a> 
-		 </div>
-	</div>
-	</div>
-
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les listes de ses étudiants</h5>
-		    <p class="card-text">ajoute Etudiant à une liste</p>
-		    <a asp-controller="Prof" asp-action="AddStudentListe" class="btn btn-success">Start</a> 
-
-		 </div>
-	</div>
-	</div>
-
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les listes de ses étudiants</h5>
-		    <p class="card-text">import liste étudiant</p>
-		    <a asp-controller="Prof" asp-action="ImportListeStudent" class="btn btn-secondary">Start</a> 
-		 </div>
-	</div>
-	</div>
-
-
-
-</div>
-
-
-
-
-<div class="row mt-4">
-
-	<div class="col-md-4">
-		<div class="card" style="width: 19rem;">
-		  <div class="card-body">
-		    <h5 class="card-title">Gérer les listes de ses étudiants</h5>
-		    <p class="card-text">export liste étudiant</p>
-		    <a asp-controller="Prof" asp-action="ExcelStudents" class="btn btn-warning">Start</a> 
-		 </div>
-	</div>
-	</div>
-
-
-
-</div>

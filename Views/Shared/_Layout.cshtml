@@ -3,32 +3,86 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Absence</title>
+    <title>@ViewData["Title"] - MASIR</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	
+    @* for login *@
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap2.min.css">
+    
+        <!-- Style -->
+    <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="css/ajouteretudiant.css">
+    
+
+
+
+
+    @*for Index *@
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+    @* last one *@
+
+	<!--<link rel="stylesheet" href="css/ionicons.min.css">-->
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    
+    @* <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="height:90px; background-color: #44346c;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Absence</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logos_transparent.png" width="120" height="120" class="d-inline-block align-top" alt="">
+                </a>
+                <!--<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Absence</a>-->
+                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button>-->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" style="display: flex;justify-content: space-between;">
                         <div style="display: flex;">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                <a class="nav-link text-light" href="#">About</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#">FAQs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                            </li>
+
                         </div>
                         <div>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
                             </li>
                         </div>
 
@@ -39,21 +93,72 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
+    </header> *@
+
+  
+
+
+    <div class="container" style="margin-top: 100px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Absence - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <footer class="footer-07" style="background-color: #6c63ff;">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<h2 class="footer-heading"><a href="#" class="logo">Gestion d'absence MASIR</a></h2>
+						<p class="menu">
+							<a href="#">About</a>
+                            <a href="#">Help + Feedback</a>
+                            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+							<a href="#">Terms and Conditions</a>                            
+                        </p>
+						<ul class="ftco-footer-social p-0">
+                        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter" style="border-color: #ffb663;"><span><ion-icon name="logo-twitter" style="color: #ffb663;"></ion-icon></span></a></li>
+                        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook" style="border-color: #ffb663;"><span><ion-icon name="logo-facebook" style="color: #ffb663;"></ion-icon></span></a></li>
+                        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram" style="border-color: #ffb663;"><span><ion-icon name="logo-instagram" style="color: #ffb663;"></ion-icon></span></a></li>
+                        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Github" style="border-color: #ffb663;"><span><ion-icon name="logo-github" style="color: #ffb663;"></ion-icon></span></a></li>
+
+                        </ul>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-md-12 text-center">
+						<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <ion-icon name="heart-half-outline"></ion-icon> by <a target="_blank" style="color: #ffb663;">MASIR Team</a>
+					  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+					</div>
+				</div>
+			</div>
+		</footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
+    @* Les liens pour login *@
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+    @* Les liens pour home *@
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
